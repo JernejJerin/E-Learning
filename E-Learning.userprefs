@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game\GameGUI.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs">
     <Files>
-      <File FileName="Assets\Scripts\Game\clockScript.js" Line="20" Column="1" />
+      <File FileName="Assets\Standard Assets\Water (Basic)\Sources\Scripts\WaterSimple.cs" Line="17" Column="51" />
+      <File FileName="Assets\Scripts\Game\clockScript.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Title\TitleGUI.js" Line="11" Column="3" />
-      <File FileName="Assets\Scripts\Game\GameGUI.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
