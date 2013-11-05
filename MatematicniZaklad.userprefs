@@ -1,9 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game\GameGUI.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game\MoveAround.js">
     <Files>
+      <File FileName="Assets\Scripts\Game\MoveAround.js" Line="34" Column="26" />
       <File FileName="Assets\Scripts\Game\GameGUI.js" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Title\TitleGUI.js" Line="1" Column="1" />
+      <File FileName="Assets\Standard Assets\Scripts\Camera Scripts\SmoothFollow.js" Line="1" Column="1" />
+      <File FileName="Assets\GenerateProblem.js" Line="3" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
