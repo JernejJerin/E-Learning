@@ -1,23 +1,31 @@
 ﻿#pragma strict
 
-var speed : Vector3;
-var timing : float;
+var speed : float;
+var direction : Vector3;
+var timeElapsed : float;
+var directionChangeTime : float;
 
 function Start () {
-	// I reckon you are in 2D so z is 0
-	speed = Vector3(Random.Range(-2, 2), Random.Range(-2, 2), 0); 
-	timing = 0;
+	// Smeri vektor naj bo normaliziran (vrednosti med -1 in 1). Kasneje pomnozimo z hitrostjo.
+	direction = Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)); 
+	timeElapsed = 0;
 }
 
 function Update () {
-	timing += Time.deltaTime;
-	rigidbody.MovePosition(rigidbody.position + speed * Time.deltaTime); 
-	if (timing > 3){
+	// Cas, ki je potekel povecamo.
+	timeElapsed += Time.deltaTime;
+	
+	// Trenutni poziciji pristejemo smer ladje pomnozeno z njeno hitrostjo.
+	rigidbody.MovePosition(rigidbody.position + direction * speed * Time.deltaTime);
+	
+	// Ali je ze potekel cas za ponovni obrat?
+	if (timeElapsed > directionChangeTime){
 	   ChangeDirection();
-	   timing = 0;
+	   timeElapsed = 0;
 	}
 }
 
+// Spremenimo smer ladje.
 function ChangeDirection () { 
-	speed = new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), 0);
+	direction = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
 }

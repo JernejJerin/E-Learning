@@ -251,7 +251,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &444083383
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,8 +491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d900910581e7d4e9adb077e2f7457d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.61999989
-  newPosition: {x: 0, y: 0}
+  speed: {x: 0, y: 0, z: 0}
+  timing: 0
 --- !u!1 &1048012534
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,10 +30,8 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 	
 	// Ce naletimo na zaklad, nakljucno generiramo novo steklenico.
 	if (hit.transform.tag == "MathematicalTreasure") {
-		// Uporabnik mora pritisniti tipko Enter.
-		if (Input.GetKeyDown("v"))
-			// Posljemo sporocilo da naj ustvari novo enacbo.
-			hit.transform.SendMessage("GenerateProblem", SendMessageOptions.DontRequireReceiver);
+		// Posljemo sporocilo da naj ustvari novo enacbo.
+		hit.transform.SendMessage("GenerateProblem", SendMessageOptions.DontRequireReceiver);
 	}
 		
 	// Ce naletimo na steklenico jo unicimo.
