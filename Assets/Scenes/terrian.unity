@@ -6338,7 +6338,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -9488,7 +9488,7 @@ Transform:
   m_PrefabInternal: {fileID: 1779343086}
   m_GameObject: {fileID: 834458534}
   m_LocalRotation: {x: 0, y: -.918100893, z: 0, w: -.396346748}
-  m_LocalPosition: {x: 956.607971, y: -.194635868, z: 1015.65002}
+  m_LocalPosition: {x: 931.099976, y: -.194635868, z: 1015.65002}
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children:
   - {fileID: 1206154831}
@@ -16739,7 +16739,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1536187348}
   m_LocalRotation: {x: .0298571661, y: .706476152, z: -.0298571661, w: .706476152}
-  m_LocalPosition: {x: 655.256897, y: 38.6023483, z: 1000}
+  m_LocalPosition: {x: 633.466248, y: 56.4999542, z: 1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -16755,7 +16755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 834458535}
-  distance: 50
+  distance: 74.8199997
   height: 15
   heightDamping: 2
   rotationDamping: 3
@@ -19634,7 +19634,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 648c18dc0e420664ab75331d7b2f64cf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 956.607971
+      value: 931.099976
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 648c18dc0e420664ab75331d7b2f64cf, type: 3}
       propertyPath: m_LocalPosition.y

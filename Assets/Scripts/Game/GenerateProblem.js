@@ -10,8 +10,10 @@ function Update () {
 
 }
 
+
+
 function GenerateProblem() {
-	Instantiate(bottle, Vector3(966, 1, 1010), Quaternion.identity);
+	Instantiate(bottle, Vector3(Random.Range(85,980), -0.2, Random.Range(910,1095)), Quaternion.identity);
 }
 
 function OnTriggerEnter (other : Collider) {
