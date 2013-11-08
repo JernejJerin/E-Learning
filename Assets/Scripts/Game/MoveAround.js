@@ -4,6 +4,10 @@ function Start () {
 
 }
 
+function OnTriggerEnter (other : Collider) {
+	Debug.Log("Trigger entered");
+}
+
 // Dolocimo hitrost pomikanja in obracanja igralca.
 var speed = 3.0;
 var rotateSpeed = 0.1;
