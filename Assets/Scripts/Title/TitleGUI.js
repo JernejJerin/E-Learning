@@ -8,7 +8,7 @@ function OnGUI () {
 	
 	if(GUI.Button(Rect(halfScreenW-halfButtonW,560,buttonW,buttonH),"Začni igro!"))
 	{
-		Application.LoadLevel("game");
+		Application.LoadLevel("terrian");
 		print("You clicked me!");
 	}
 }
