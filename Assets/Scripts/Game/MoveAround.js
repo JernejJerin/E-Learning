@@ -36,11 +36,14 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 	if (hit.transform.tag == "MathematicalTreasure") {
 		// Posljemo sporocilo da naj ustvari novo enacbo.
 		hit.transform.SendMessage("GenerateProblem", SendMessageOptions.DontRequireReceiver);
+		LifeBar.powerLife -= 1;
 	}
 		
 	// Ce naletimo na steklenico jo unicimo.
-	if (gameObject.tag == "Bottle")
+	if (gameObject.tag == "Bottle"){
 		UnityEngine.Object.Destroy(gameObject);
+		LifeBar.powerLife += 10;
+	}
 	
 	// no rigidbody
 	if (body == null || body.isKinematic)
