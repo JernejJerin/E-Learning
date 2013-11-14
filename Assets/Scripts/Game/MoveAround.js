@@ -8,9 +8,11 @@ function OnTriggerEnter (other : Collider) {
 	Debug.Log("Trigger entered");
 }
 
-// Dolocimo hitrost pomikanja in obracanja igralca.
+// Dolocimo hitrost pomikanja, obracanja igralca in aktivnost zaklada.
 var speed = 3.0;
 var rotateSpeed = 0.1;
+var treasureActivated = false;
+var text3DAddition : Transform;
 
 // Ob vsakem izrisu slike (frame) se poklice Update funkcija.
 function Update () {
@@ -32,10 +34,24 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 	var body : Rigidbody = hit.collider.attachedRigidbody;
 	var gameObject : GameObject = hit.collider.gameObject;
 	
-	// Ce naletimo na zaklad, nakljucno generiramo novo steklenico.
-	if (hit.transform.tag == "MathematicalTreasure") {
-		// Posljemo sporocilo da naj ustvari novo enacbo.
-		hit.transform.SendMessage("GenerateProblem", SendMessageOptions.DontRequireReceiver);
+	// Preverimo ali smo naleteli na zaklad in ali ze ni kateri od zakladov aktiven.
+	if (hit.transform.tag.IndexOf("MathematicalTreasure") != -1 && !treasureActivated) {
+		// Aktiviramo zaklad.
+		treasureActivated = true;
+		
+		// Obarvamo tekst nad zakladom rdece.
+		text3DAddition.renderer.material.color = Color.red;
+		
+		// Glede na tip zaklada (sestevanje, odstevanje, mnozenje, deljenje) posljemo sporocilo z parametrom o tipu enacbe.
+		if (hit.transform.tag.IndexOf("Addition") != -1) {
+			hit.transform.SendMessage("GenerateProblem", SendMessageOptions.DontRequireReceiver, 0);
+		} else if (hit.transform.tag.IndexOf("Subtraction") != -1) {
+			hit.transform.SendMessage("GenerateProblem", SendMessageOptions.DontRequireReceiver, 1);
+		} else if (hit.transform.tag.IndexOf("Multiplication") != -1) {
+			hit.transform.SendMessage("GenerateProblem", SendMessageOptions.DontRequireReceiver, 2);
+		} else if (hit.transform.tag.IndexOf("Division") != -1) {
+			hit.transform.SendMessage("GenerateProblem", SendMessageOptions.DontRequireReceiver, 3);
+		} 
 		LifeBar.powerLife -= 1;
 	}
 		

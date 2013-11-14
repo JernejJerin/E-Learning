@@ -3,12 +3,12 @@
 --- !u!78 &1
 TagManager:
   tags:
-  - MathematicalTreasure
+  - MathematicalTreasureAddition
   - Bottle
   - RockMesh
   - LifeBar
-  - 
-  - 
+  - MathematicalTreasureSubtraction
+  - PirateShip
   - 
   - 
   - 
