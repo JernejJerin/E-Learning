@@ -37,7 +37,7 @@ public class ScreenShot : MonoBehaviour
         byte[] bytes = texture.EncodeToPNG();
  
         // save our test image (could also upload to WWW)
-        File.WriteAllBytes(Application.dataPath + "/../testscreen-" + count + ".png", bytes);
+        //File.WriteAllBytes(Application.dataPath + "/../testscreen-" + count + ".png", bytes);
         count++;
  
         // Added by Karl. - Tell unity to delete the texture, by default it seems to keep hold of it and memory crashes will occur after too many screenshots.
