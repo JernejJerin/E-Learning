@@ -1,12 +1,4 @@
-﻿#pragma strict
-
-function Start () {
-
-}
-
-function OnTriggerEnter (other : Collider) {
-	Debug.Log("Trigger entered");
-}
+#pragma strict
 
 // Dolocimo hitrost pomikanja, obracanja igralca in aktivnost zaklada.
 var speed = 3.0;
@@ -56,7 +48,11 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 	}
 		
 	// Ce naletimo na steklenico jo unicimo.
-	if (gameObject.tag == "Bottle"){
+	if (gameObject.tag == "Bottle") {
+		// Preden jo unicimo pristejemo trenutni enacbi vrednost.
+		var generateProblem : GenerateProblem = GameObject.Find("Mathematical treasure - addition").GetComponent(GenerateProblem);
+		generateProblem.currentSolution += gameObject.GetComponent(BottleProperties).bottleValue;
+		
 		UnityEngine.Object.Destroy(gameObject);
 		LifeBar.powerLife += 10;
 	}
