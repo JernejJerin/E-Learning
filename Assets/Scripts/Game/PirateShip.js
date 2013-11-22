@@ -6,7 +6,6 @@ var timeElapsed : float;
 var directionChangeTime : float;
 var target : Transform;
 var tmp : Vector3;
-var me : Transform;
 
 
 function Start () {
@@ -37,11 +36,3 @@ function ChangeDirection () {
 	direction = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
 }
 //DestroyObject(transform.gameObject);
-
-function OnCollisionEnter(collision : Collision) {
-    if(collision.gameObject.tag.IndexOf("MathematicalShip") != -1){
-    	DestroyObject(me.gameObject);
-    	LifeBar.changeLifeBarPower(-10);
-		Debug.Log("Zadel v pirateShip");
-    }
-}

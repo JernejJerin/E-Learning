@@ -9,6 +9,7 @@ TagManager:
   - LifeBar
   - PirateShip
   - BottleClone
+  - MathematicalShip
   - 
   - 
   - 
@@ -21,6 +22,7 @@ TagManager:
   - 
   - 
   - 
+  - MathematicalTreasure
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

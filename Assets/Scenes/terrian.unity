@@ -7592,7 +7592,7 @@ GameObject:
   - 114: {fileID: 355943388}
   m_Layer: 0
   m_Name: Pirate ship
-  m_TagString: Untagged
+  m_TagString: PirateShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7651,7 +7651,6 @@ MonoBehaviour:
   directionChangeTime: 5
   target: {fileID: 0}
   tmp: {x: 0, y: 0, z: 0}
-  me: {fileID: 0}
 --- !u!54 &355943386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7677,8 +7676,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5999999, y: 1, z: 19}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.6500001, y: 1, z: 19}
+  m_Center: {x: 0, y: .300000012, z: 0}
 --- !u!114 &355943388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17620,7 +17619,7 @@ GameObject:
   - 114: {fileID: 834458538}
   m_Layer: 0
   m_Name: Mathematical ship
-  m_TagString: Untagged
+  m_TagString: MathematicalShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37406,6 +37405,10 @@ Prefab:
       propertyPath: m_Name
       value: Mathematical ship
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 648c18dc0e420664ab75331d7b2f64cf, type: 3}
+      propertyPath: m_TagString
+      value: MathematicalShip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 648c18dc0e420664ab75331d7b2f64cf, type: 3}
   m_RootGameObject: {fileID: 834458534}
@@ -44307,6 +44310,10 @@ Prefab:
     - target: {fileID: 100000, guid: 2789b50e1661ddf419f0a661f8ffc21c, type: 3}
       propertyPath: m_Name
       value: Pirate ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2789b50e1661ddf419f0a661f8ffc21c, type: 3}
+      propertyPath: m_TagString
+      value: PirateShip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2789b50e1661ddf419f0a661f8ffc21c, type: 3}

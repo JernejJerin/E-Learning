@@ -49,7 +49,9 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 	}
 	
 	if(hit.transform.tag.IndexOf("PirateShip") != -1){
-		
+    	DestroyObject(hit.transform.gameObject);
+    	LifeBar.changeLifeBarPower(-10);
+		Debug.Log("Zadel v pirateShip");
 	}
 	
 	// Ce smo se dotaknili zaklada in je ta ze aktiven, potem preverimo ali je uporabnik pobral pravilno stevilo steklenic.
