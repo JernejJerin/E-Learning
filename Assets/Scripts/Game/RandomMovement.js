@@ -4,6 +4,8 @@ var speed : float;
 var direction : Vector3;
 var timeElapsed : float;
 var directionChangeTime : float;
+var target : Transform;
+var tmp : Vector3;
 
 function Start () {
 	// Smeri vektor naj bo normaliziran (vrednosti med -1 in 1). Kasneje pomnozimo z hitrostjo.
@@ -12,17 +14,22 @@ function Start () {
 }
 
 function Update () {
+
 	// Cas, ki je potekel povecamo.
 	timeElapsed += Time.deltaTime;
 	
 	// Trenutni poziciji pristejemo smer ladje pomnozeno z njeno hitrostjo.
-	rigidbody.MovePosition(rigidbody.position + direction * speed * Time.deltaTime);
+	tmp = rigidbody.position + direction * speed * Time.deltaTime;
+	rigidbody.MovePosition(tmp);
+	transform.LookAt(tmp);
 	
 	// Ali je ze potekel cas za ponovni obrat?
 	if (timeElapsed > directionChangeTime){
 	   ChangeDirection();
 	   timeElapsed = 0;
 	}
+	
+	
 }
 
 // Spremenimo smer ladje.
