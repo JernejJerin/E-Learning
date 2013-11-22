@@ -25,6 +25,7 @@ var pushPower = 2.0;
 function OnControllerColliderHit (hit : ControllerColliderHit) {
 	var body : Rigidbody = hit.collider.attachedRigidbody;
 	var gameObject : GameObject = hit.collider.gameObject;
+	var generateProblem : GenerateProblem;
 	
 	// Preverimo ali smo naleteli na zaklad in ali ze ni kateri od zakladov aktiven.
 	if (hit.transform.tag.IndexOf("MathematicalTreasure") != -1 && !treasureActivated) {
@@ -36,25 +37,49 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		
 		// Glede na tip zaklada (sestevanje, odstevanje, mnozenje, deljenje) posljemo sporocilo z parametrom o tipu enacbe.
 		if (hit.transform.tag.IndexOf("Addition") != -1) {
-			hit.transform.SendMessage("GenerateProblem", SendMessageOptions.DontRequireReceiver, 0);
+			hit.transform.SendMessage("GenerateProblem", 0, SendMessageOptions.DontRequireReceiver);
+			//Debug.Log("Addition");
 		} else if (hit.transform.tag.IndexOf("Subtraction") != -1) {
-			hit.transform.SendMessage("GenerateProblem", SendMessageOptions.DontRequireReceiver, 1);
+			hit.transform.SendMessage("GenerateProblem", 1, SendMessageOptions.DontRequireReceiver);
 		} else if (hit.transform.tag.IndexOf("Multiplication") != -1) {
-			hit.transform.SendMessage("GenerateProblem", SendMessageOptions.DontRequireReceiver, 2);
+			hit.transform.SendMessage("GenerateProblem", 2, SendMessageOptions.DontRequireReceiver);
 		} else if (hit.transform.tag.IndexOf("Division") != -1) {
-			hit.transform.SendMessage("GenerateProblem", SendMessageOptions.DontRequireReceiver, 3);
+			hit.transform.SendMessage("GenerateProblem", 3, SendMessageOptions.DontRequireReceiver);
 		} 
 		LifeBar.powerLife -= 1;
 	}
+	
+	// Ce smo se dotaknili zaklada in je ta ze aktiven, potem preverimo ali je uporabnik pobral pravilno stevilo steklenic.
+	if (hit.transform.tag.IndexOf("MathematicalTreasure") != -1 && treasureActivated) {
+		// Ker smo zadeli ob matematicni zaklad lahko direktno dostopamo do skripte, ki je vezana kot komponenta.
+		generateProblem = hit.transform.GetComponent(GenerateProblem);
+	
+		
+	}
 		
 	// Ce naletimo na steklenico jo unicimo.
-	if (gameObject.tag == "Bottle") {
-		// Preden jo unicimo pristejemo trenutni enacbi vrednost.
-		var generateProblem : GenerateProblem = GameObject.Find("Mathematical treasure - addition").GetComponent(GenerateProblem);
+	if (gameObject.tag == "BottleClone") {
+		// Naleteli smo na steklenico, torej je potrebno dobiti skripto GenerateProblem z metodo Find.
+		generateProblem = GameObject.Find("Mathematical treasure - addition").GetComponent(GenerateProblem);
 		generateProblem.currentSolution += gameObject.GetComponent(BottleProperties).bottleValue;
 		
-		UnityEngine.Object.Destroy(gameObject);
-		LifeBar.powerLife += 10;
+		// Ali je uporabnikova resitva enaka uradni resitvi?
+		if (generateProblem.solution == generateProblem.currentSolution) {
+			// Deaktiviramo zaklad.
+			treasureActivated = false;
+			
+			// Obarvamo tekst nad zakladom rdece.
+			text3DAddition.renderer.material.color = Color.yellow;
+			
+			// Unicimo vse steklenice.
+			var clones = GameObject.FindGameObjectsWithTag ("BottleClone");
+		    for (var clone in clones){
+		        Destroy(clone);
+		    }
+		} else {
+			UnityEngine.Object.Destroy(gameObject);
+			LifeBar.powerLife += 10;
+		}
 	}
 	
 	// no rigidbody

@@ -7,16 +7,16 @@ var bottleText : Transform;
 // Generirani stevili, tip matematicne operacije in resitev matematicne enacbe.
 var number1 : int;
 var number2 : int;
-var mathematicalOperation2 : int;
+var mathematicalOperation : int;
 var solution : double;
 
 // Trenutna resitev uporabnika.
-var currentSolution : double = 0;
+var currentSolution : double;
 
 /** Generiraj nakljucni matematicni problem **/
 function GenerateProblem(mathematicalOperation) {
-	mathematicalOperation2 = mathematicalOperation;
-	Debug.Log(mathematicalOperation2);
+	currentSolution = 0;
+	this.mathematicalOperation = mathematicalOperation;
 	
 	// Interval generiranja stevil naj bo med -10 in 10.
 	number1 = Random.Range(-10, 10);
@@ -50,6 +50,7 @@ function GenerateProblem(mathematicalOperation) {
 		var bottleValue : int = Random.Range(-10, 10);
 		
 		cloneBottle = Instantiate(bottle, randomPosition, Quaternion.identity);
+		cloneBottle.tag = "BottleClone";
 		randomPosition.y = 2;
 		cloneBottleText = Instantiate(bottleText,  randomPosition, Quaternion.identity);
 		
@@ -63,6 +64,4 @@ function GenerateProblem(mathematicalOperation) {
 		bottleProperties.bottleValue = bottleValue;
 		cloneBottleText.GetComponent(TextMesh).text = bottleValue.ToString();
 	}
-	
-	//Debug.Log(number1 + ", " + number2 + " = " + solution);
 }
