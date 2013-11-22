@@ -46,7 +46,10 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		} else if (hit.transform.tag.IndexOf("Division") != -1) {
 			hit.transform.SendMessage("GenerateProblem", 3, SendMessageOptions.DontRequireReceiver);
 		} 
-		LifeBar.powerLife -= 1;
+	}
+	
+	if(hit.transform.tag.IndexOf("PirateShip") != -1){
+		
 	}
 	
 	// Ce smo se dotaknili zaklada in je ta ze aktiven, potem preverimo ali je uporabnik pobral pravilno stevilo steklenic.
@@ -78,7 +81,7 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		    }
 		} else {
 			UnityEngine.Object.Destroy(gameObject);
-			LifeBar.powerLife += 10;
+			LifeBar.changeLifeBarPower(10);
 		}
 	}
 	
