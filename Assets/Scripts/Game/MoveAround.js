@@ -48,7 +48,9 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		} 
 	}
 	
+	//Ko nas napade pirate ship izgine
 	if(hit.transform.tag.IndexOf("PirateShip") != -1){
+		AudioSource.PlayClipAtPoint(hit.transform.gameObject.audio.clip, transform.position);
     	DestroyObject(hit.transform.gameObject);
     	LifeBar.changeLifeBarPower(-10);
 		Debug.Log("Zadel v pirateShip");
@@ -62,8 +64,10 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		
 	}
 		
-	// Ce naletimo na steklenico jo unicimo.
-	if (gameObject.tag == "BottleClone") {
+	// Ce naletimo na steklenico jo unicimo in dodamo zvocni efekt.
+	if (gameObject.tag == "BottleClone") {	
+		AudioSource.PlayClipAtPoint(gameObject.audio.clip, transform.position);
+		
 		// Naleteli smo na steklenico, torej je potrebno dobiti skripto GenerateProblem z metodo Find.
 		generateProblem = GameObject.Find("Mathematical treasure - addition").GetComponent(GenerateProblem);
 		generateProblem.currentSolution += gameObject.GetComponent(BottleProperties).bottleValue;

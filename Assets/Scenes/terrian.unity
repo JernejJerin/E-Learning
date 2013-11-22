@@ -7590,6 +7590,7 @@ GameObject:
   - 54: {fileID: 355943386}
   - 65: {fileID: 355943387}
   - 114: {fileID: 355943388}
+  - 82: {fileID: 355943389}
   m_Layer: 0
   m_Name: Pirate ship
   m_TagString: PirateShip
@@ -7689,6 +7690,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e918c67a4b560847857576351420977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &355943389
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 355943382}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 8d1822178713575429dc0cba775696f6, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &356204572
 GameObject:
   m_ObjectHideFlags: 0
@@ -11826,6 +11885,7 @@ GameObject:
   - 23: {fileID: 587522743}
   - 54: {fileID: 587522742}
   - 114: {fileID: 587522747}
+  - 82: {fileID: 587522748}
   m_Layer: 0
   m_Name: Bottle
   m_TagString: Bottle
@@ -11908,6 +11968,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bottleValue: 0
+--- !u!82 &587522748
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 587522741}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 0dae686fb43615d489173801307c21dc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &588467320
 GameObject:
   m_ObjectHideFlags: 0
@@ -17631,7 +17749,7 @@ Transform:
   m_PrefabInternal: {fileID: 1779343086}
   m_GameObject: {fileID: 834458534}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 931.099976, y: .379739285, z: 1015.65002}
+  m_LocalPosition: {x: 947.871582, y: .379739285, z: 1015.65002}
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children:
   - {fileID: 1206154831}
@@ -17717,6 +17835,7 @@ MonoBehaviour:
   rotateSpeed: 1
   treasureActivated: 0
   text3DAddition: {fileID: 1820955859}
+  audioSource: {fileID: 0}
   pushPower: 2
 --- !u!1 &837285823
 GameObject:
@@ -37327,7 +37446,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 648c18dc0e420664ab75331d7b2f64cf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 931.099976
+      value: 947.871582
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 648c18dc0e420664ab75331d7b2f64cf, type: 3}
       propertyPath: m_LocalPosition.y

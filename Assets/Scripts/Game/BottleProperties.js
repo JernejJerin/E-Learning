@@ -2,3 +2,4 @@
 
 // Vrednost steklenice.
 var bottleValue : int;
+

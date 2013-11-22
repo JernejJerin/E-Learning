@@ -35,4 +35,3 @@ function Update () {
 function ChangeDirection () { 
 	direction = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
 }
-//DestroyObject(transform.gameObject);
