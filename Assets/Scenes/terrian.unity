@@ -9957,6 +9957,7 @@ GameObject:
   - 4: {fileID: 484695744}
   - 23: {fileID: 484695743}
   - 102: {fileID: 484695742}
+  - 114: {fileID: 484695745}
   m_Layer: 0
   m_Name: 3D Text - Bottle
   m_TagString: Untagged
@@ -10014,6 +10015,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &484695745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 484695741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c3318038d854346b68e5d7d1b3014a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1536187353}
 --- !u!1 &488394282
 GameObject:
   m_ObjectHideFlags: 0
@@ -38353,6 +38366,7 @@ GameObject:
   - 4: {fileID: 1820955859}
   - 23: {fileID: 1820955858}
   - 102: {fileID: 1820955857}
+  - 114: {fileID: 1820955860}
   m_Layer: 0
   m_Name: 3D Text - Addition
   m_TagString: Untagged
@@ -38410,6 +38424,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &1820955860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1820955856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c3318038d854346b68e5d7d1b3014a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1536187353}
 --- !u!1 &1822411336
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,7 +39,7 @@ function ChangeDirection () {
 //DestroyObject(transform.gameObject);
 
 function OnCollisionEnter(collision : Collision) {
-    if(collision.gameObject.tag == "MathematicalShip"){
+    if(collision.gameObject.tag.IndexOf("MathematicalShip") != -1){
     	DestroyObject(me.gameObject);
     	LifeBar.changeLifeBarPower(-10);
 		Debug.Log("Zadel v pirateShip");
