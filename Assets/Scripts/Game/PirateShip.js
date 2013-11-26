@@ -10,7 +10,8 @@ var tmp : Vector3;
 
 function Start () {
 	// Smeri vektor naj bo normaliziran (vrednosti med -1 in 1). Kasneje pomnozimo z hitrostjo.
-	direction = Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)); 
+	direction = Vector3(target.position.x - rigidbody.position.x, 0, target.position.z - rigidbody.position.z);
+	
 	timeElapsed = 0;
 }
 
@@ -33,5 +34,6 @@ function Update () {
 
 // Spremenimo smer ladje.
 function ChangeDirection () { 
-	direction = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
+	//direction = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
+	direction = Vector3(target.position.x - rigidbody.position.x, 0, target.position.z - rigidbody.position.z);
 }
