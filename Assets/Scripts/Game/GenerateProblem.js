@@ -46,7 +46,20 @@ function GenerateProblem(mathematicalOperation) {
 		// Instanciramo novo steklenico in tekst.
 		var cloneBottle : Transform;
 		var cloneBottleText : Transform;
-		var randomPosition : Vector3 = Vector3(Random.Range(830,980), -0.2, Random.Range(910,1095));
+		
+		//Set initiall values somewhere on terrian 
+		var bottleX : float = 500;
+		var bottleZ : float = 650; 
+		
+		// Search for within region where terrian is low, e.g is watter
+		while(Terrain.activeTerrain.SampleHeight(Vector3(bottleX, 0, bottleZ)) > 0){
+			bottleX = Random.Range(500,1350);
+			bottleZ = Random.Range(650,1300);
+		}
+		var randomPosition : Vector3 = Vector3(bottleX, -0.2, bottleZ);
+		//TODO 
+		// get terrian heigh
+		//Debug.Log(Terrain.activeTerrain.SampleHeight(new Vector3(900,0,1010)));
 		var bottleValue : int = Random.Range(-10, 10);
 		
 		cloneBottle = Instantiate(bottle, randomPosition, Quaternion.identity);
