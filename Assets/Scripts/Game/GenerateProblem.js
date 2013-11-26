@@ -50,9 +50,11 @@ function GenerateProblem(mathematicalOperation) {
 		var bottleValue : int = Random.Range(-10, 10);
 		
 		cloneBottle = Instantiate(bottle, randomPosition, Quaternion.identity);
+		cloneBottle.renderer.enabled = true;
 		cloneBottle.tag = "BottleClone";
 		randomPosition.y = 2;
 		cloneBottleText = Instantiate(bottleText,  randomPosition, Quaternion.identity);
+		cloneBottleText.renderer.enabled = true;
 		
 		// Nastavimo steklenico kot starsa za text.
 		cloneBottleText.transform.parent = cloneBottle;
