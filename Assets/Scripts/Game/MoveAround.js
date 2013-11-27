@@ -1,4 +1,3 @@
-#pragma strict
 
 // Dolocimo hitrost pomikanja, obracanja igralca in aktivnost zaklada.
 var speed = 3.0;

@@ -47,16 +47,8 @@ function GenerateProblem(mathematicalOperation) {
 		var cloneBottle : Transform;
 		var cloneBottleText : Transform;
 		
-		//Set initiall values somewhere on terrian 
-		var bottleX : float = 500;
-		var bottleZ : float = 650; 
 		
-		// Search for within region where terrian is low, e.g is watter
-		while(Terrain.activeTerrain.SampleHeight(Vector3(bottleX, 0, bottleZ)) > 0){
-			bottleX = Random.Range(500,1350);
-			bottleZ = Random.Range(650,1300);
-		}
-		var randomPosition : Vector3 = Vector3(bottleX, -0.2, bottleZ);
+		var randomPosition : Vector3 = getRandomValidXZ();//Vector3(bottleX, -0.2, bottleZ);
 		//TODO 
 		// get terrian heigh
 		//Debug.Log(Terrain.activeTerrain.SampleHeight(new Vector3(900,0,1010)));
@@ -66,17 +58,32 @@ function GenerateProblem(mathematicalOperation) {
 		cloneBottle.renderer.enabled = true;
 		cloneBottle.tag = "BottleClone";
 		randomPosition.y = 2;
-		cloneBottleText = Instantiate(bottleText,  randomPosition, Quaternion.identity);
-		cloneBottleText.renderer.enabled = true;
-		
-		// Nastavimo steklenico kot starsa za text.
-		cloneBottleText.transform.parent = cloneBottle;
+		cloneBottleText = cloneBottle.Find("3D Text - Bottle");//Instantiate(bottleText,  randomPosition, Quaternion.identity);
 		
 		// Dobimo referenco na skripto, kjer imamo shranjeno lastnost.
 		var bottleProperties : BottleProperties = cloneBottle.GetComponent(BottleProperties);
 		
 		// Nastavimo vrednost steklenice na nakljucno.
 		bottleProperties.bottleValue = bottleValue;
-		cloneBottleText.GetComponent(TextMesh).text = bottleValue.ToString();
+		cloneBottleText.GetComponent(TextMesh).text = bottleValue.ToString();	
+		
+		//Demo: generiraj pol toliko sovraznikov kot steklenic
+		if(i % 2 == 0){
+			PirateShip.generatePirateShip(Random.Range(0.01, 0.1), Random.Range(2, 20));
+		}
 	}
+}
+
+public static function getRandomValidXZ(){
+	//Set initiall values somewhere on terrian 
+	var x : float = 500;
+	var z : float = 650; 
+	
+	// Search for within region where terrian is low, e.g is watter
+	while(Terrain.activeTerrain.SampleHeight(Vector3(x, 0, z)) > 0){
+		x = Random.Range(500,1350);
+		z = Random.Range(650,1300);
+	}
+	
+	return Vector3(x, 0, z);
 }
