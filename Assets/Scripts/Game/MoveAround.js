@@ -3,7 +3,7 @@
 var speed = 3.0;
 var rotateSpeed = 0.1;
 var treasureActivated = false;
-var text3DAddition : Transform;
+var text3D : Transform;
 
 // Ob vsakem izrisu slike (frame) se poklice Update funkcija.
 function Update () {
@@ -32,19 +32,23 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		treasureActivated = true;
 		
 		// Obarvamo tekst nad zakladom rdece.
-		text3DAddition.renderer.material.color = Color.red;
+		text3D = hit.transform.parent.Find("3D Text");
+		text3D.renderer.material.color = Color.red;
 		
 		// Glede na tip zaklada (sestevanje, odstevanje, mnozenje, deljenje) posljemo sporocilo z parametrom o tipu enacbe.
-		if (hit.transform.tag.IndexOf("Addition") != -1) {
+		var ireland = hit.transform.parent + "";
+		
+		if (ireland.IndexOf("Addition") != -1) {
 			hit.transform.SendMessage("GenerateProblem", 0, SendMessageOptions.DontRequireReceiver);
-			//Debug.Log("Addition");
-		} else if (hit.transform.tag.IndexOf("Subtraction") != -1) {
+		} else if (ireland.IndexOf("Subtraction") != -1) {
 			hit.transform.SendMessage("GenerateProblem", 1, SendMessageOptions.DontRequireReceiver);
-		} else if (hit.transform.tag.IndexOf("Multiplication") != -1) {
+		} else if (ireland.IndexOf("Multiplication") != -1) {
 			hit.transform.SendMessage("GenerateProblem", 2, SendMessageOptions.DontRequireReceiver);
-		} else if (hit.transform.tag.IndexOf("Division") != -1) {
+		} else if (ireland.IndexOf("Division") != -1) {
 			hit.transform.SendMessage("GenerateProblem", 3, SendMessageOptions.DontRequireReceiver);
+			
 		} 
+		Debug.Log("Zadel: " + hit.transform.root);
 	}
 	
 	//Ko nas napade pirate ship izgine
@@ -59,8 +63,6 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 	if (hit.transform.tag.IndexOf("MathematicalTreasure") != -1 && treasureActivated) {
 		// Ker smo zadeli ob matematicni zaklad lahko direktno dostopamo do skripte, ki je vezana kot komponenta.
 		generateProblem = hit.transform.GetComponent(GenerateProblem);
-	
-		
 	}
 		
 	// Ce naletimo na steklenico jo unicimo in dodamo zvocni efekt.
@@ -77,7 +79,7 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 			treasureActivated = false;
 			
 			// Obarvamo tekst nad zakladom rdece.
-			text3DAddition.renderer.material.color = Color.yellow;
+			text3D.renderer.material.color = Color.yellow;
 			
 			// Unicimo vse steklenice.
 			var clones = GameObject.FindGameObjectsWithTag ("BottleClone");
