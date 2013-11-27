@@ -3,6 +3,7 @@
 // Steklenica, iz katere delamo kopije.
 var bottle : Transform;
 var bottleText : Transform;
+var audioClipOpenProblem : AudioClip;
 
 // Generirani stevili, tip matematicne operacije in resitev matematicne enacbe.
 var number1 : int;
@@ -69,8 +70,9 @@ function GenerateProblem(mathematicalOperation) {
 		
 		//Demo: generiraj pol toliko sovraznikov kot steklenic
 		if(i % 2 == 0){
-			PirateShip.generatePirateShip(Random.Range(0.01, 0.1), Random.Range(2, 20));
+			PirateShip.generatePirateShip(Random.Range(0.01, 0.2), Random.Range(2, 20));
 		}
+		AudioSource.PlayClipAtPoint(audioClipOpenProblem, this.transform.position);
 	}
 }
 

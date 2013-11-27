@@ -1,4 +1,6 @@
 ﻿var customSkin:GUISkin;
+var audioClip : AudioClip;
+
 function OnGUI () {
 	GUI.skin = customSkin;
 	var buttonW:int = 100;
@@ -8,7 +10,8 @@ function OnGUI () {
 	
 	if(GUI.Button(Rect(halfScreenW-halfButtonW,560,buttonW,buttonH),"Začni igro!"))
 	{
+		
 		Application.LoadLevel("terrian");
-		print("You clicked me!");
+		AudioSource.PlayClipAtPoint(audioClip, this.transform.position);
 	}
 }
