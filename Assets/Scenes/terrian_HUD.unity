@@ -3885,6 +3885,8 @@ MonoBehaviour:
   direction: {x: 10.3999996, y: 0, z: 0}
   timeElapsed: 0
   directionChangeTime: 5
+  target: {fileID: 834458535}
+  tmp: {x: 0, y: 0, z: 0}
 --- !u!54 &355943386
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9625,6 +9627,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   rotateSpeed: 1
+  treasureActivated: 0
+  text3D: {fileID: 0}
   pushPower: 2
 --- !u!1 &839137735
 GameObject:
@@ -14340,6 +14344,56 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1327359812}
   m_Mesh: {fileID: 4300744, guid: c10adad22e6c89d4cba876ceccf68cb8, type: 3}
+--- !u!1 &1347105619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1347105621}
+  - 132: {fileID: 1347105620}
+  m_Layer: 0
+  m_Name: GUI Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!132 &1347105620
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1347105619}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Gui Text 123
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: cbc9fb13bed3cb246b35f5d7cbf259f8, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 34
+  m_FontStyle: 2
+  m_Color:
+    serializedVersion: 2
+    rgba: 4284069446
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!4 &1347105621
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1347105619}
+  m_LocalRotation: {x: -.0298571661, y: -.706476152, z: .0298571661, w: .706476152}
+  m_LocalPosition: {x: 1000.69, y: -108.751549, z: -625.952515}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1536187353}
 --- !u!1 &1349818539
 GameObject:
   m_ObjectHideFlags: 0
@@ -16863,6 +16917,7 @@ Transform:
   m_LocalPosition: {x: 633.466248, y: 56.4999542, z: 1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1347105621}
   - {fileID: 1378423621}
   m_Father: {fileID: 0}
 --- !u!114 &1536187354
@@ -16892,8 +16947,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc4195f596e30fc45af7809e76cd5c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderValue: 1
-  maxSliderValue: 10
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1541013276
 GameObject:
   m_ObjectHideFlags: 0
@@ -24723,6 +24783,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bottle: {fileID: 587522746}
+  bottleText: {fileID: 0}
+  audioClipOpenProblem: {fileID: 0}
+  number1: 0
+  number2: 0
+  mathematicalOperation: 0
+  solution: 0
+  currentSolution: 0
 --- !u!54 &2124859418
 Rigidbody:
   m_ObjectHideFlags: 0

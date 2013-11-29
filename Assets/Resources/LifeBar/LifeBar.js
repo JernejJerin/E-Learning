@@ -1,21 +1,28 @@
 static var maxPowerLife : float = 100.0;
 static var minPowerLife : float = 0.0;
-private static var powerLife : float = 50.0;
+private static var powerLife : float = 0.0;
+
+function Start(){
+	Debug.Log("Init Body: 50%");
+	powerLife = 50;
+}
 
 function Update () { 
-	renderer.material.SetFloat("_Cutoff", Mathf.InverseLerp(0, maxPowerLife, maxPowerLife-powerLife)); 
 }
 
 
 public static function changeLifeBarPower(difference : int){
-	Debug.Log("Spreminjam life bar: " + difference);
+	Debug.Log("Spreminjam life bar za: " + difference);
+	
 	powerLife += difference;
+	Debug.Log("Life bar =  " + powerLife);
 	
-	if (powerLife < minPowerLife){
-		powerLife = minPowerLife;
+	HUD_GT.setText("gtBody", "Trup: " + powerLife + "%");
+	
+	if (powerLife > 100){
+		powerLife = 100;
 	}
-	
-	if(powerLife > maxPowerLife){
-		powerLife = maxPowerLife;
+	if (powerLife <= 0){
+		Application.LoadLevel("game_over");
 	}
 }
