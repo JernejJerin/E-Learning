@@ -86,10 +86,19 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		    for (var clone in clones){
 		        Destroy(clone);
 		    }
+		    
+		    //Unicimo vse piratske ladije
+		    clones = GameObject.FindGameObjectsWithTag ("PirateShipClone");
+		    for (var clone in clones){
+		        Destroy(clone);
+		    }
+		    InterfaceGUI.showEquation = false;
+		    HUD_GT.setText("gtEquation", "Poisci novo enacbo!");
+		    
 		} else {
 			UnityEngine.Object.Destroy(gameObject);
-			LifeBar.changeLifeBarPower(10);
 		}
+		LifeBar.changeLifeBarPower(10);
 	}
 	
 	// no rigidbody

@@ -38,7 +38,7 @@ function ChangeDirection () {
 public static function generatePirateShip(newSpeed, directionChangeTime)
 {
 	var ps = Instantiate(GameObject.FindWithTag("PirateShip").transform, GenerateProblem.getRandomValidXZ() , Quaternion.identity);
-	ps.tag = "PirateShip";
+	ps.tag = "PirateShipClone";
 	var psjs : PirateShip = ps.GetComponent("PirateShip");
 	psjs.speed = newSpeed;
 	psjs.directionChangeTime = directionChangeTime;

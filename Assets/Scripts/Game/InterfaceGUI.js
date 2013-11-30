@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 // Nastavljanje kdaj naj bo enacba vidna navzven.
-var showEquation = false;
+public static var showEquation = false;
 var mathSign = " ";
 
 function OnGUI () {

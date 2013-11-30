@@ -1,6 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game\PirateShip.js">
+    <Files>
+      <File FileName="Assets\Scripts\Game\GenerateProblem.js" Line="73" Column="24" />
+      <File FileName="Assets\Scripts\Game\MoveAround.js" Line="91" Column="67" />
+      <File FileName="Assets\Scripts\Game\PirateShip.js" Line="41" Column="1" />
+      <File FileName="Assets\Scripts\Game\InterfaceGUI.js" Line="4" Column="31" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
