@@ -1,6 +1,6 @@
 
 // Dolocimo hitrost pomikanja, obracanja igralca in aktivnost zaklada.
-var speed = 3.0;
+var speed = 15.0;
 var rotateSpeed = 0.1;
 var treasureActivated = false;
 var text3D : Transform;
@@ -16,6 +16,22 @@ function Update () {
 	var forward = transform.TransformDirection(Vector3.forward); 
 	var curSpeed = speed * Input.GetAxis ("Vertical"); 
 	controller.SimpleMove(forward * curSpeed);
+	
+	//vklop turbo pogona
+	if (Input.GetKeyDown ("space")){
+		speed = 100.0;
+		rotateSpeed = 5;
+		Debug.Log("pritisnil space");
+	}
+	if (Input.GetKeyUp ("space")){
+		speed = 15.0;
+		rotateSpeed = 0.5;
+		
+		
+		if(LifeBar.powerLife > 5){
+			LifeBar.changeLifeBarPower(-5);
+		}
+	}
 
 }
 
