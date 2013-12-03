@@ -117,17 +117,26 @@ function generateLevel() {
 			start = -1000;
 			end = 1000;
 		}
-		solution = Random.Range(start, end);
+		var firstNum = Random.Range(start, end);
+		
+		if(firstNum == 0){
+			firstNum = 10;
+		}
 		
 		var prafactors = new Array();
-		for (i = 0; i < abs(solution); i++) {
-			if (solution % i == 0) {
+		for (i = 1; i < abs(firstNum); i++) {
+			if (firstNum % i == 0) {
 				prafactors.Add(i);
 			}
 		}
 		
-		numbers.Add(solution);
-		numbers.Add(solution / parseInt(prafactors[Random.Range(1, prafactors.length-1)].ToString()));
+		
+		numbers.Add(firstNum);
+		var secondNumIndex = 0;
+		if(prafactors.length > 1){
+			secondNumIndex = Random.Range(1, prafactors.length-1);
+		}
+		numbers.Add(firstNum / parseInt(prafactors[secondNumIndex].ToString()));
 		
 		
 	} else {
