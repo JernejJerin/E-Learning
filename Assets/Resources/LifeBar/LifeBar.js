@@ -12,12 +12,12 @@ function Update () {
 
 
 public static function changeLifeBarPower(difference : int){
-	Debug.Log("Spreminjam life bar za: " + difference);
+	Debug.Log("Changing points: " + difference);
 	
 	powerLife += difference;
-	Debug.Log("Life bar =  " + powerLife);
+	Debug.Log("Points =  " + powerLife);
 	
-	HUD_GT.setText("gtBody", "Trup: " + powerLife + "%");
+	HUD_GT.setText("gtBody", "Tocke: " + powerLife + "%");
 	
 	if (powerLife > 100){
 		powerLife = 100;

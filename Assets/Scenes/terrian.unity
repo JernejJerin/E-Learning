@@ -9972,8 +9972,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
-  m_EditorClassIdentifier: 
 --- !u!20 &231325158
 Camera:
   m_ObjectHideFlags: 0
