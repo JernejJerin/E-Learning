@@ -9,13 +9,13 @@ function Update () {
 }
 
 
-public static function changeLifeBarPower(difference : int){
+public static function changeLifeBarPower(difference : float){
 	Debug.Log("Changing points: " + difference);
 	
 	powerLife += difference;
 	Debug.Log("Tocke =  " + powerLife);
 	
-	HUD_GT.setText("gtBody", "Tocke: " + powerLife + "%");
+	HUD_GT.setText("gtBody", "Tocke: " + powerLife);
 	
 	if (powerLife <= 0){
 		//Application.LoadLevel("game_over");

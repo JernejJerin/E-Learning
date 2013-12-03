@@ -29,14 +29,17 @@ function OnGUI () {
 				break;
 		}
 		
-		// to prevent 5 + -6 =, so we get 5 - 6 = 
-		/*if (generateProblem.number2 < 0 && generateProblem.mathematicalOperation == 0){
-			mathSign = " ";
-		}*/
+		// Izpis enacbe.
 		var str = "Enacba: ";
 		for (var i = 0; i < generateProblem.numbers.length - 1; i++) 
 			str += generateProblem.numbers[i] + mathSign;
-		str += generateProblem.numbers[generateProblem.numbers.length - 1] + " = " + generateProblem.currentSolution;
+		str += generateProblem.numbers[generateProblem.numbers.length - 1] + " = ";
+		
+		// Izpisemo samo, ce je uporabnik ze pobral kaksno steklenico.
+		if (generateProblem.currentSolution != null)
+			str += generateProblem.currentSolution;
+		else
+			str += " ? ";
 		HUD_GT.setText("gtEquation", str);
 	}
 }

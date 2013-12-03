@@ -11,15 +11,16 @@ var mathematicalOperation : int;
 var solution : double;
 
 // Trenutna resitev uporabnika.
-var currentSolution : double;
+var currentSolution;
 
 /** Generiraj nakljucni matematicni problem **/
 function GenerateProblem(mathematicalOperation : int) {
 	numbers.clear();
 	solution = 0;
-	currentSolution = 0;
+	currentSolution = null;
 	this.mathematicalOperation = mathematicalOperation;
 	
+	// Generiramo stevila glede na nivo igre, torej zahtevnost igre.
 	generateLevel();
 
 	// Ali gre za sestevanje, odstevanje, mnozenje ali deljenje? Na podlagi podanega parametra generiramo resitev.
@@ -68,13 +69,12 @@ function GenerateProblem(mathematicalOperation : int) {
 		// Nastavimo vrednost steklenice na nakljucno.
 		bottleProperties.bottleValue = bottleValue;
 		cloneBottleText.GetComponent(TextMesh).text = bottleValue.ToString();	
-		
-		//Demo: generiraj pol toliko sovraznikov kot steklenic
-		if(i % 2 == 0){
-			PirateShip.generatePirateShip(Random.Range(0.01, 0.2), Random.Range(2, 20));
-		}
+	
 		AudioSource.PlayClipAtPoint(audioClipOpenProblem, this.transform.position);
 	}
+	
+	for (i = 0; i < MoveAround.level / 2; i++)
+		PirateShip.generatePirateShip(Random.Range(0.01, 0.2), Random.Range(2, 20));
 }
 
 function generateLevel() {

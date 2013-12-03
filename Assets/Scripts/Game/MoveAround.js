@@ -115,8 +115,17 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		
 		// Naleteli smo na steklenico, torej je potrebno dobiti skripto GenerateProblem z metodo Find.
 		generateProblem = this.transform.GetComponent(GenerateProblem);
-		generateProblem.currentSolution += gameObject.GetComponent(BottleProperties).bottleValue;
 		
+		// 1. Preverimo tip enacbe. Ce gre za sestevanje ali odstevanje se vrednost steklenic pristeva.
+		// V nasprotnem primeru pa ce poberemo nepravilno resitev se vrednost odsteje.
+		if (generateProblem.mathematicalOperation == 0 || generateProblem.mathematicalOperation == 1) {
+			LifeBar.changeLifeBarPower(10);
+			if (generateProblem.currentSolution == null)
+				generateProblem.currentSolution = 0;
+			generateProblem.currentSolution += gameObject.GetComponent(BottleProperties).bottleValue;
+		} else {
+			LifeBar.changeLifeBarPower(-10);
+		}
 		// Ali je uporabnikova resitva enaka uradni resitvi?
 		if (generateProblem.solution == generateProblem.currentSolution) {
 			level++;
@@ -145,7 +154,6 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		} else {
 			UnityEngine.Object.Destroy(gameObject);
 		}
-		LifeBar.changeLifeBarPower(10);
 	}
 	
 	// no rigidbody
