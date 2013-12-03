@@ -1,9 +1,10 @@
 
-// Dolocimo hitrost pomikanja, obracanja igralca in aktivnost zaklada.
+// Dolocimo hitrost pomikanja, obracanja igralca, ali je aktiven zaklad in tekst nad steklenico.
 var speed = 3.0;
 var rotateSpeed = 0.1;
 var treasureActivated = false;
 var text3D : Transform;
+var pushPower = 2.0;
 
 // Ob vsakem izrisu slike (frame) se poklice Update funkcija.
 function Update () {
@@ -19,8 +20,7 @@ function Update () {
 
 }
 
-// this script pushes all rigidbodies that the character touches
-var pushPower = 2.0;
+// Upravljanje z trki matematicne ladje.
 function OnControllerColliderHit (hit : ControllerColliderHit) {
 	var body : Rigidbody = hit.collider.attachedRigidbody;
 	var gameObject : GameObject = hit.collider.gameObject;
@@ -29,26 +29,27 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 	// Preverimo ali smo naleteli na zaklad in ali ze ni kateri od zakladov aktiven.
 	if (hit.transform.tag.IndexOf("MathematicalTreasure") != -1 && !treasureActivated) {
 		// Aktiviramo zaklad.
-		treasureActivated = true;
+		this.treasureActivated = true;
 		
 		// Obarvamo tekst nad zakladom rdece.
-		text3D = hit.transform.parent.Find("3D Text");
-		text3D.renderer.material.color = Color.red;
+		this.text3D = hit.transform.parent.Find("3D Text");
+		this.text3D.renderer.material.color = Color.red;
 		
 		// Glede na tip zaklada (sestevanje, odstevanje, mnozenje, deljenje) posljemo sporocilo z parametrom o tipu enacbe.
-		var ireland = hit.transform.parent + "";
+		var island = hit.transform.parent + "";
 		
-		if (ireland.IndexOf("Addition") != -1) {
-			hit.transform.SendMessage("GenerateProblem", 0, SendMessageOptions.DontRequireReceiver);
-		} else if (ireland.IndexOf("Subtraction") != -1) {
-			hit.transform.SendMessage("GenerateProblem", 1, SendMessageOptions.DontRequireReceiver);
-		} else if (ireland.IndexOf("Multiplication") != -1) {
-			hit.transform.SendMessage("GenerateProblem", 2, SendMessageOptions.DontRequireReceiver);
-		} else if (ireland.IndexOf("Division") != -1) {
-			hit.transform.SendMessage("GenerateProblem", 3, SendMessageOptions.DontRequireReceiver);
+		if (island.IndexOf("Addition") != -1) {
+			this.transform.SendMessage("GenerateProblem", 0, SendMessageOptions.DontRequireReceiver);
+		} else if (island.IndexOf("Subtraction") != -1) {
+			this.transform.SendMessage("GenerateProblem", 1, SendMessageOptions.DontRequireReceiver);
+		} else if (island.IndexOf("Multiplication") != -1) {
+			this.transform.SendMessage("GenerateProblem", 2, SendMessageOptions.DontRequireReceiver);
+		} else if (island.IndexOf("Division") != -1) {
+			this.transform.SendMessage("GenerateProblem", 3, SendMessageOptions.DontRequireReceiver);
 			
-		} 
-		Debug.Log("Zadel: " + hit.transform.root);
+		}
+		
+		Debug.Log("Zadel v matematiöni zaklad");
 	}
 	
 	//Ko nas napade pirate ship izgine
@@ -57,12 +58,6 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
     	DestroyObject(hit.transform.gameObject);
     	LifeBar.changeLifeBarPower(-10);
 		Debug.Log("Zadel v pirateShip");
-	}
-	
-	// Ce smo se dotaknili zaklada in je ta ze aktiven, potem preverimo ali je uporabnik pobral pravilno stevilo steklenic.
-	if (hit.transform.tag.IndexOf("MathematicalTreasure") != -1 && treasureActivated) {
-		// Ker smo zadeli ob matematicni zaklad lahko direktno dostopamo do skripte, ki je vezana kot komponenta.
-		generateProblem = hit.transform.GetComponent(GenerateProblem);
 	}
 		
 	// Ce naletimo na steklenico jo unicimo in dodamo zvocni efekt.
