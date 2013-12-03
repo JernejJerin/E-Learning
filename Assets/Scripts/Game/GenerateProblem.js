@@ -29,8 +29,9 @@ function GenerateProblem(mathematicalOperation : int) {
 		for (var i = 0; i < numbers.length; i++)
 			solution += parseInt(numbers[i].ToString());
 	} else if (mathematicalOperation == 1) {
+		solution = numbers[0];
 		// Odstevanje
-		for (i = 0; i < numbers.length; i++)
+		for (i = 1; i < numbers.length; i++)
 			solution -= parseInt(numbers[i].ToString());
 	} else if (mathematicalOperation == 2) {
 		// Mnozenje
@@ -49,13 +50,25 @@ function GenerateProblem(mathematicalOperation : int) {
 		// Instanciramo novo steklenico in tekst.
 		var cloneBottle : Transform;
 		var cloneBottleText : Transform;
-		
+		var bottleValue : int;
 		
 		var randomPosition : Vector3 = getRandomValidXZ();//Vector3(bottleX, -0.2, bottleZ);
-		//TODO 
-		// get terrian heigh
-		//Debug.Log(Terrain.activeTerrain.SampleHeight(new Vector3(900,0,1010)));
-		var bottleValue : int = Random.Range(-10, 10);
+		
+		// Ce gre za matematicno operacijo sestevanje in odstevanje potem generiramo nakljucno vrednost.
+		if (mathematicalOperation == 0 || mathematicalOperation == 1)
+			bottleValue = Random.Range(-10, 10);
+		else {
+			// Nastavimo resitev.
+			if (i == 10)
+				bottleValue = solution;
+			else {
+				if(abs(solution) < 10 ){
+					bottleValue = Random.Range(-10, 10);
+				} else {
+					bottleValue = Random.Range(parseInt(solution - solution / 2), parseInt(solution + solution / 2));
+				}
+			}
+		}
 		
 		cloneBottle = Instantiate(bottle, randomPosition, Quaternion.identity);
 		cloneBottle.renderer.enabled = true;
@@ -90,6 +103,33 @@ function generateLevel() {
 			for (i = 0; i < 4; i++)
 				numbers.Add(Random.Range(-10, 10));
 		}
+	} else if (mathematicalOperation == 3) {
+		var start : int;
+		var end : int;
+		if (MoveAround.level < 5) {
+			// Interval generiranja stevil naj bo med -10 in 10.
+			start = -10;
+			end = 10;
+		} else if (MoveAround.level >= 5 && MoveAround.level < 10) {
+			start = -100;
+			end = 100;
+		} else {
+			start = -1000;
+			end = 1000;
+		}
+		solution = Random.Range(start, end);
+		
+		var prafactors = new Array();
+		for (i = 0; i < abs(solution); i++) {
+			if (solution % i == 0) {
+				prafactors.Add(i);
+			}
+		}
+		
+		numbers.Add(solution);
+		numbers.Add(solution / parseInt(prafactors[Random.Range(1, prafactors.length-1)].ToString()));
+		
+		
 	} else {
 		if (MoveAround.level < 5) {
 			// Interval generiranja stevil naj bo med -10 in 10.
@@ -117,4 +157,11 @@ public static function getRandomValidXZ(){
 	}
 	
 	return Vector3(x, 0, z);
+}
+
+function abs(i:int){
+if (i<0)
+return -i;
+else
+return i;
 }

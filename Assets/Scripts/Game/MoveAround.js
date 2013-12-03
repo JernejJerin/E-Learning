@@ -124,10 +124,11 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 				generateProblem.currentSolution = 0;
 			generateProblem.currentSolution += gameObject.GetComponent(BottleProperties).bottleValue;
 		} else {
-			LifeBar.changeLifeBarPower(-10);
+			generateProblem.currentSolution = gameObject.GetComponent(BottleProperties).bottleValue;
 		}
 		// Ali je uporabnikova resitva enaka uradni resitvi?
 		if (generateProblem.solution == generateProblem.currentSolution) {
+			LifeBar.changeLifeBarPower(10);
 			level++;
 			HUD_GT.setText("gtLevel", "Nivo: " + level);
 			
@@ -152,6 +153,9 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		    HUD_GT.setText("gtEquation", "Poisci novo enacbo!");
 		    
 		} else {
+			if (generateProblem.mathematicalOperation == 2 || generateProblem.mathematicalOperation == 3) {
+				LifeBar.changeLifeBarPower(-10);
+			}
 			UnityEngine.Object.Destroy(gameObject);
 		}
 	}
