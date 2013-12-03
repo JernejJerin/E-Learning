@@ -21,3 +21,7 @@ public static function changeLifeBarPower(difference : int){
 		Application.LoadLevel("game_over");
 	}
 }
+
+public static function getPowerLife(){
+	return powerLife;
+}

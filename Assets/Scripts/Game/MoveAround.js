@@ -28,9 +28,9 @@ function Update () {
 		speed = 15.0;
 		rotateSpeed = 0.5;
 				
-		/*if(LifeBar.powerLife > 5){
+		if(LifeBar.getPowerLife() > 5){
 			LifeBar.changeLifeBarPower(-5);
-		}*/
+		}
 	}
 }
 // Upravljanje z trki matematicne ladje.
