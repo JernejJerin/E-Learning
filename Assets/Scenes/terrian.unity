@@ -9972,6 +9972,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
 --- !u!20 &231325158
 Camera:
   m_ObjectHideFlags: 0
@@ -18915,7 +18916,7 @@ GUIText:
   m_GameObject: {fileID: 464015920}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: 'Trup: 50%'
+  m_Text: 'Tocke: 0'
   m_Anchor: 0
   m_Alignment: 0
   m_PixelOffset: {x: 0, y: 0}
