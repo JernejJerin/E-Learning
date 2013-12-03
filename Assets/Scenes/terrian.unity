@@ -9973,6 +9973,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
 --- !u!20 &231325158
 Camera:
   m_ObjectHideFlags: 0
@@ -14872,7 +14877,7 @@ GameObject:
   - 114: {fileID: 355943388}
   - 82: {fileID: 355943389}
   m_Layer: 0
-  m_Name: Pirate ship
+  m_Name: PirateShip
   m_TagString: PirateShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26509,7 +26514,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 659993931}
   - 95: {fileID: 659993935}
-  - 114: {fileID: 659993934}
   - 65: {fileID: 659993933}
   - 54: {fileID: 659993932}
   m_Layer: 0
@@ -26917,26 +26921,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .400000006, y: .100000001, z: .300000012}
   m_Center: {x: 0, y: -.00999999978, z: -.0240000002}
---- !u!114 &659993934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 659993930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1dfba682e923c045b0f3c3990d6c883, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bottle: {fileID: 587522746}
-  bottleText: {fileID: 484695744}
-  audioClipOpenProblem: {fileID: 8300000, guid: 34412f10aa5ae7e42826e801e776c718,
-    type: 3}
-  number1: 0
-  number2: 0
-  mathematicalOperation: 0
-  solution: 0
-  currentSolution: 0
 --- !u!95 &659993935
 Animator:
   m_ObjectHideFlags: 0
@@ -33871,8 +33855,9 @@ GameObject:
   - 95: {fileID: 834458536}
   - 143: {fileID: 834458537}
   - 114: {fileID: 834458538}
+  - 114: {fileID: 834458539}
   m_Layer: 0
-  m_Name: Mathematical ship
+  m_Name: MathematicalShip
   m_TagString: MathematicalShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33971,6 +33956,26 @@ MonoBehaviour:
   treasureActivated: 0
   text3D: {fileID: 0}
   pushPower: 0
+--- !u!114 &834458539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 834458534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1dfba682e923c045b0f3c3990d6c883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottle: {fileID: 587522746}
+  bottleText: {fileID: 484695744}
+  audioClipOpenProblem: {fileID: 8300000, guid: 34412f10aa5ae7e42826e801e776c718,
+    type: 3}
+  number1: 0
+  number2: 0
+  mathematicalOperation: 0
+  solution: 0
+  currentSolution: 0
 --- !u!1 &836634918
 GameObject:
   m_ObjectHideFlags: 0
@@ -37090,7 +37095,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 908516681}
   - 95: {fileID: 908516685}
-  - 114: {fileID: 908516684}
   - 65: {fileID: 908516683}
   - 54: {fileID: 908516682}
   m_Layer: 0
@@ -37498,26 +37502,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .400000006, y: .100000001, z: .300000012}
   m_Center: {x: 0, y: -.00999999978, z: -.0240000002}
---- !u!114 &908516684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 908516680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1dfba682e923c045b0f3c3990d6c883, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bottle: {fileID: 587522746}
-  bottleText: {fileID: 484695744}
-  audioClipOpenProblem: {fileID: 8300000, guid: 34412f10aa5ae7e42826e801e776c718,
-    type: 3}
-  number1: 0
-  number2: 0
-  mathematicalOperation: 0
-  solution: 0
-  currentSolution: 0
 --- !u!95 &908516685
 Animator:
   m_ObjectHideFlags: 0
@@ -46827,7 +46811,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1170028958}
   - 95: {fileID: 1170028963}
-  - 114: {fileID: 1170028962}
   - 65: {fileID: 1170028961}
   - 54: {fileID: 1170028960}
   m_Layer: 0
@@ -47235,26 +47218,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .400000006, y: .100000001, z: .300000012}
   m_Center: {x: 0, y: -.00999999978, z: -.0240000002}
---- !u!114 &1170028962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1170028957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1dfba682e923c045b0f3c3990d6c883, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bottle: {fileID: 587522746}
-  bottleText: {fileID: 484695744}
-  audioClipOpenProblem: {fileID: 8300000, guid: 34412f10aa5ae7e42826e801e776c718,
-    type: 3}
-  number1: 0
-  number2: 0
-  mathematicalOperation: 0
-  solution: 0
-  currentSolution: 0
 --- !u!95 &1170028963
 Animator:
   m_ObjectHideFlags: 0
@@ -62488,7 +62451,7 @@ GameObject:
   - 114: {fileID: 1536187355}
   - 114: {fileID: 1536187356}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86034,7 +85997,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2789b50e1661ddf419f0a661f8ffc21c, type: 3}
       propertyPath: m_Name
-      value: Pirate ship
+      value: PirateShip
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2789b50e1661ddf419f0a661f8ffc21c, type: 3}
       propertyPath: m_TagString
@@ -86549,7 +86512,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 2073543981}
   - 95: {fileID: 2073543986}
-  - 114: {fileID: 2073543985}
   - 65: {fileID: 2073543984}
   - 54: {fileID: 2073543983}
   m_Layer: 0
@@ -86957,26 +86919,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .400000006, y: .100000001, z: .300000012}
   m_Center: {x: 0, y: -.00999999978, z: -.0240000002}
---- !u!114 &2073543985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2073543980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1dfba682e923c045b0f3c3990d6c883, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bottle: {fileID: 587522746}
-  bottleText: {fileID: 484695744}
-  audioClipOpenProblem: {fileID: 8300000, guid: 8d1822178713575429dc0cba775696f6,
-    type: 3}
-  number1: 0
-  number2: 0
-  mathematicalOperation: 0
-  solution: 0
-  currentSolution: 0
 --- !u!95 &2073543986
 Animator:
   m_ObjectHideFlags: 0

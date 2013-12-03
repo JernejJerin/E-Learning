@@ -8,7 +8,7 @@ function OnGUI () {
 	// Ali je aktiviran kateri od matematicnih problemov?
 	if (showEquation) {
 		// Pridobimo enacbo iz skripte GenerateProblem.
-		var generateProblem : GenerateProblem = GameObject.Find("Mathematical treasure - addition").GetComponent(GenerateProblem);
+		var generateProblem : GenerateProblem = GameObject.Find("MathematicalShip").GetComponent(GenerateProblem);
 		
 		switch(generateProblem.mathematicalOperation){
 			case (0):

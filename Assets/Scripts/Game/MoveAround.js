@@ -27,13 +27,12 @@ function Update () {
 	if (Input.GetKeyUp ("space")){
 		speed = 15.0;
 		rotateSpeed = 0.5;
-		
-		
-		if(LifeBar.powerLife > 5){
+				
+		/*if(LifeBar.powerLife > 5){
 			LifeBar.changeLifeBarPower(-5);
-		}
+		}*/
 	}
-
+}
 // Upravljanje z trki matematicne ladje.
 function OnControllerColliderHit (hit : ControllerColliderHit) {
 	var body : Rigidbody = hit.collider.attachedRigidbody;
@@ -79,7 +78,7 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		AudioSource.PlayClipAtPoint(gameObject.audio.clip, transform.position);
 		
 		// Naleteli smo na steklenico, torej je potrebno dobiti skripto GenerateProblem z metodo Find.
-		generateProblem = GameObject.Find("Mathematical treasure - addition").GetComponent(GenerateProblem);
+		generateProblem = GameObject.Find("MathematicalShip").GetComponent(GenerateProblem);
 		generateProblem.currentSolution += gameObject.GetComponent(BottleProperties).bottleValue;
 		
 		// Ali je uporabnikova resitva enaka uradni resitvi?

@@ -39,7 +39,7 @@ function GenerateProblem(mathematicalOperation : int) {
 	}
 	
 	// Omogocimo izpis enacbe v skripti InterfaceGUI.
-	var gui : InterfaceGUI = GameObject.Find("Main Camera").GetComponent(InterfaceGUI);
+	var gui : InterfaceGUI = GameObject.Find("MainCamera").GetComponent(InterfaceGUI);
 	gui.showEquation = true;
 	
 	// Generiramo 20 steklenic razlicnih vrednosti.
