@@ -78,7 +78,7 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		AudioSource.PlayClipAtPoint(gameObject.audio.clip, transform.position);
 		
 		// Naleteli smo na steklenico, torej je potrebno dobiti skripto GenerateProblem z metodo Find.
-		generateProblem = GameObject.Find("MathematicalShip").GetComponent(GenerateProblem);
+		generateProblem = this.transform.GetComponent(GenerateProblem);
 		generateProblem.currentSolution += gameObject.GetComponent(BottleProperties).bottleValue;
 		
 		// Ali je uporabnikova resitva enaka uradni resitvi?
@@ -95,7 +95,7 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		        Destroy(clone);
 		    }
 		    
-		    //Unicimo vse piratske ladije
+		    //Unicimo vse piratske ladje
 		    clones = GameObject.FindGameObjectsWithTag ("PirateShipClone");
 		    for (var clone in clones){
 		        Destroy(clone);

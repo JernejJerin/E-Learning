@@ -9978,6 +9978,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
   m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: 
 --- !u!20 &231325158
 Camera:
   m_ObjectHideFlags: 0
@@ -15867,7 +15874,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 373625908}
   m_Layer: 0
-  m_Name: Subtraction
+  m_Name: Multiplication
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26517,8 +26524,8 @@ GameObject:
   - 65: {fileID: 659993933}
   - 54: {fileID: 659993932}
   m_Layer: 0
-  m_Name: Mathematical treasure - addition
-  m_TagString: MathematicalTreasureAddition
+  m_Name: Mathematical treasure
+  m_TagString: MathematicalTreasure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30686,7 +30693,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 742208648}
   m_Layer: 0
-  m_Name: Subtraction
+  m_Name: Division
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31704,7 +31711,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 761905223}
   m_Layer: 0
-  m_Name: IslandDevision
+  m_Name: IslandDivision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

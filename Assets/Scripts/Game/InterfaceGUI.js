@@ -30,7 +30,7 @@ function OnGUI () {
 		}
 		
 		// to prevent 5 + -6 =, so we get 5 - 6 = 
-		if (generateProblem.number2 < 0){
+		if (generateProblem.number2 < 0 && generateProblem.mathematicalOperation == 0){
 			mathSign = " ";
 		}
 		var str = "Enacba: " + generateProblem.number1 + mathSign + generateProblem.number2 + " = " + generateProblem.currentSolution;
