@@ -7,6 +7,7 @@ var text3D : Transform;
 var pushPower = 2.0;
 var jetEngine : Transform;
 var jetEngine2 : Transform;
+static var level = 0;
 
 // Ob vsakem izrisu slike (frame) se poklice Update funkcija.
 function Update () {
@@ -34,6 +35,33 @@ function Update () {
 		if(LifeBar.getPowerLife() > 5){
 			LifeBar.changeLifeBarPower(-5);
 		}
+	}
+	if (Input.GetKeyDown ("s")){
+		var generateProblem = this.transform.GetComponent(GenerateProblem);
+		generateProblem.currentSolution = generateProblem.solution;
+		level++;
+			HUD_GT.setText("gtLevel", "Nivo: " + level);
+			
+			// Deaktiviramo zaklad.
+			treasureActivated = false;
+			
+			// Obarvamo tekst nad zakladom rdece.
+			text3D.renderer.material.color = Color.yellow;
+			
+			// Unicimo vse steklenice.
+			var clones = GameObject.FindGameObjectsWithTag ("BottleClone");
+		    for (var clone in clones){
+		        Destroy(clone);
+		    }
+		    
+		    //Unicimo vse piratske ladje
+		    clones = GameObject.FindGameObjectsWithTag ("PirateShipClone");
+		    for (var clone in clones){
+		        Destroy(clone);
+		    }
+		    InterfaceGUI.showEquation = false;
+		    HUD_GT.setText("gtEquation", "Poisci novo enacbo!");
+		Debug.Log("pritisnil s");
 	}
 }
 
@@ -91,6 +119,9 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		
 		// Ali je uporabnikova resitva enaka uradni resitvi?
 		if (generateProblem.solution == generateProblem.currentSolution) {
+			level++;
+			HUD_GT.setText("gtLevel", "Nivo: " + level);
+			
 			// Deaktiviramo zaklad.
 			treasureActivated = false;
 			

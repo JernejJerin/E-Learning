@@ -30,10 +30,13 @@ function OnGUI () {
 		}
 		
 		// to prevent 5 + -6 =, so we get 5 - 6 = 
-		if (generateProblem.number2 < 0 && generateProblem.mathematicalOperation == 0){
+		/*if (generateProblem.number2 < 0 && generateProblem.mathematicalOperation == 0){
 			mathSign = " ";
-		}
-		var str = "Enacba: " + generateProblem.number1 + mathSign + generateProblem.number2 + " = " + generateProblem.currentSolution;
+		}*/
+		var str = "Enacba: ";
+		for (var i = 0; i < generateProblem.numbers.length - 1; i++) 
+			str += generateProblem.numbers[i] + mathSign;
+		str += generateProblem.numbers[generateProblem.numbers.length - 1] + " = " + generateProblem.currentSolution;
 		HUD_GT.setText("gtEquation", str);
 	}
 }

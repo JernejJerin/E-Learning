@@ -6,8 +6,7 @@ var bottleText : Transform;
 var audioClipOpenProblem : AudioClip;
 
 // Generirani stevili, tip matematicne operacije in resitev matematicne enacbe.
-var number1 : int;
-var number2 : int;
+var numbers = new Array();
 var mathematicalOperation : int;
 var solution : double;
 
@@ -16,26 +15,28 @@ var currentSolution : double;
 
 /** Generiraj nakljucni matematicni problem **/
 function GenerateProblem(mathematicalOperation : int) {
+	numbers.clear();
+	solution = 0;
 	currentSolution = 0;
 	this.mathematicalOperation = mathematicalOperation;
 	
-	// Interval generiranja stevil naj bo med -10 in 10.
-	number1 = Random.Range(-10, 10);
-	number2 = Random.Range(-10, 10);
+	generateLevel();
 
 	// Ali gre za sestevanje, odstevanje, mnozenje ali deljenje? Na podlagi podanega parametra generiramo resitev.
 	if (mathematicalOperation == 0) {
 		// Sestevanje
-		solution = number1 + number2;
+		for (var i = 0; i < numbers.length; i++)
+			solution += parseInt(numbers[i].ToString());
 	} else if (mathematicalOperation == 1) {
 		// Odstevanje
-		solution = number1 - number2;
+		for (i = 0; i < numbers.length; i++)
+			solution -= parseInt(numbers[i].ToString());
 	} else if (mathematicalOperation == 2) {
 		// Mnozenje
-		solution = number1 * number2;
+		solution = parseInt(numbers[0].ToString()) * parseInt(numbers[1].ToString());
 	} else if (mathematicalOperation == 3) {
 		// Deljenje
-		solution = number1 / number2;
+		solution = parseInt(numbers[0].ToString()) / parseInt(numbers[1].ToString());
 	}
 	
 	// Omogocimo izpis enacbe v skripti InterfaceGUI.
@@ -43,7 +44,7 @@ function GenerateProblem(mathematicalOperation : int) {
 	gui.showEquation = true;
 	
 	// Generiramo 20 steklenic razlicnih vrednosti.
-	for (var i = 0; i < 20; i++) {
+	for (i = 0; i < 20; i++) {
 		// Instanciramo novo steklenico in tekst.
 		var cloneBottle : Transform;
 		var cloneBottleText : Transform;
@@ -74,6 +75,34 @@ function GenerateProblem(mathematicalOperation : int) {
 		}
 		AudioSource.PlayClipAtPoint(audioClipOpenProblem, this.transform.position);
 	}
+}
+
+function generateLevel() {
+	if (mathematicalOperation == 0 || mathematicalOperation == 1) {
+		if (MoveAround.level < 5) {
+			// Interval generiranja stevil naj bo med -10 in 10.
+			numbers.Add(Random.Range(-10, 10));
+			numbers.Add(Random.Range(-10, 10));
+		} else if (MoveAround.level >= 5 && MoveAround.level < 10) {
+			for (var i = 0; i < 3; i++)
+				numbers.Add(Random.Range(-10, 10));
+		} else {
+			for (i = 0; i < 4; i++)
+				numbers.Add(Random.Range(-10, 10));
+		}
+	} else {
+		if (MoveAround.level < 5) {
+			// Interval generiranja stevil naj bo med -10 in 10.
+			numbers.Add(Random.Range(-10, 10));
+			numbers.Add(Random.Range(-10, 10));
+		} else if (MoveAround.level >= 5 && MoveAround.level < 10) {
+			numbers.Add(Random.Range(-100, 100));
+			numbers.Add(Random.Range(-100, 100));
+		} else {
+			numbers.Add(Random.Range(-1000, 1000));
+			numbers.Add(Random.Range(-1000, 1000));
+		}
+	}	
 }
 
 public static function getRandomValidXZ(){
