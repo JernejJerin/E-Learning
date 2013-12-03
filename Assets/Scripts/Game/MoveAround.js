@@ -5,6 +5,8 @@ var rotateSpeed = 0.1;
 var treasureActivated = false;
 var text3D : Transform;
 var pushPower = 2.0;
+var jetEngine : Transform;
+var jetEngine2 : Transform;
 
 // Ob vsakem izrisu slike (frame) se poklice Update funkcija.
 function Update () {
@@ -22,16 +24,22 @@ function Update () {
 	if (Input.GetKeyDown ("space")){
 		speed = 100.0;
 		rotateSpeed = 5;
+		toggleJetEngineActive();
 		Debug.Log("pritisnil space");
 	}
 	if (Input.GetKeyUp ("space")){
 		speed = 15.0;
 		rotateSpeed = 0.5;
-				
-		/*if(LifeBar.powerLife > 5){
+		toggleJetEngineActive();
+		if(LifeBar.getPowerLife() > 5){
 			LifeBar.changeLifeBarPower(-5);
-		}*/
+		}
 	}
+}
+
+function toggleJetEngineActive(){
+	jetEngine.active = !jetEngine.active;
+	jetEngine2.active = !jetEngine2.active;
 }
 // Upravljanje z trki matematicne ladje.
 function OnControllerColliderHit (hit : ControllerColliderHit) {

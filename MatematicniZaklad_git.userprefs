@@ -1,10 +1,40 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game\MoveAround.js">
+    <Files>
+      <File FileName="Assets\Scripts\Game\MoveAround.js" Line="38" Column="41" />
+      <File FileName="Assets\Scripts\Game\GenerateProblem.js" Line="18" Column="36" />
+      <File FileName="Assets\Resources\LifeBar\LifeBar.js" Line="1" Column="44" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-UnityScript" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Resources" expanded="True">
+                <Node name="LifeBar" expanded="True" />
+              </Node>
+              <Node name="Scripts" expanded="True">
+                <Node name="Game" expanded="True">
+                  <Node name="MoveAround.js" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>clones[0].active</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\Karlos\Documents\Unity3D\MatematicniZaklad_git\Assets\Scripts\Game\MoveAround.js" line="67" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
