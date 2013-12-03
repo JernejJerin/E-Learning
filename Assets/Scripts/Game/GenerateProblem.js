@@ -15,7 +15,7 @@ var solution : double;
 var currentSolution : double;
 
 /** Generiraj nakljucni matematicni problem **/
-function GenerateProblem(mathematicalOperation) {
+function GenerateProblem(mathematicalOperation : int) {
 	currentSolution = 0;
 	this.mathematicalOperation = mathematicalOperation;
 	
