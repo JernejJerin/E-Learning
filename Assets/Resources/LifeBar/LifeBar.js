@@ -18,7 +18,8 @@ public static function changeLifeBarPower(difference : float){
 	HUD_GT.setText("gtBody", "Tocke: " + powerLife);
 	
 	if (powerLife <= 0){
-		//Application.LoadLevel("game_over");
+		MoveAround.level = 0;
+		Application.LoadLevel("game_over");
 	}
 }
 

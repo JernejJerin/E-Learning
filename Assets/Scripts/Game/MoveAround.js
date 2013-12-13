@@ -7,7 +7,7 @@ var text3D : Transform;
 var pushPower = 2.0;
 var jetEngine : Transform;
 var jetEngine2 : Transform;
-static var level = 0;
+public static var level = 0;
 
 // Ob vsakem izrisu slike (frame) se poklice Update funkcija.
 function Update () {
@@ -29,7 +29,7 @@ function Update () {
 		Debug.Log("pritisnil space");
 	}
 	if (Input.GetKeyUp ("space")){
-		speed = 15.0;
+		speed = 30.0;
 		rotateSpeed = 0.5;
 		toggleJetEngineActive();
 		if(LifeBar.getPowerLife() > 5){
@@ -75,6 +75,9 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 	var gameObject : GameObject = hit.collider.gameObject;
 	var generateProblem : GenerateProblem;
 	
+	// Glede na tip zaklada (sestevanje, odstevanje, mnozenje, deljenje) posljemo sporocilo z parametrom o tipu enacbe.
+	var island = hit.transform.parent + "";
+	
 	// Preverimo ali smo naleteli na zaklad in ali ze ni kateri od zakladov aktiven.
 	if (hit.transform.tag.IndexOf("MathematicalTreasure") != -1 && !treasureActivated) {
 		// Aktiviramo zaklad.
@@ -84,8 +87,6 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		this.text3D = hit.transform.parent.Find("3D Text");
 		this.text3D.renderer.material.color = Color.red;
 		
-		// Glede na tip zaklada (sestevanje, odstevanje, mnozenje, deljenje) posljemo sporocilo z parametrom o tipu enacbe.
-		var island = hit.transform.parent + "";
 		
 		if (island.IndexOf("Addition") != -1) {
 			this.transform.SendMessage("GenerateProblem", 0, SendMessageOptions.DontRequireReceiver);
@@ -94,12 +95,36 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 		} else if (island.IndexOf("Multiplication") != -1) {
 			this.transform.SendMessage("GenerateProblem", 2, SendMessageOptions.DontRequireReceiver);
 		} else if (island.IndexOf("Division") != -1) {
-			this.transform.SendMessage("GenerateProblem", 3, SendMessageOptions.DontRequireReceiver);
-			
+			this.transform.SendMessage("GenerateProblem", 3, SendMessageOptions.DontRequireReceiver);	
 		}
 		
-		Debug.Log("Zadel v matematiöni zaklad");
+		Debug.Log("Zadel v matematični zaklad");
 	}
+	
+	if (treasureActivated && island.IndexOf("Exit") != -1) {
+			generateProblem = this.transform.GetComponent(GenerateProblem);
+			generateProblem.currentSolution = generateProblem.solution;
+			
+			// Deaktiviramo zaklad.
+			treasureActivated = false;
+			
+			// Obarvamo tekst nad zakladom rdece.
+			text3D.renderer.material.color = Color.yellow;
+			
+			// Unicimo vse steklenice.
+			clones = GameObject.FindGameObjectsWithTag ("BottleClone");
+		    for (var clone in clones){
+		        Destroy(clone);
+		    }
+		    
+		    //Unicimo vse piratske ladje
+		    clones = GameObject.FindGameObjectsWithTag ("PirateShipClone");
+		    for (var clone in clones){
+		        Destroy(clone);
+		    }
+		    InterfaceGUI.showEquation = false;
+		    HUD_GT.setText("gtEquation", "Poisci novo enacbo!");
+		}
 	
 	//Ko nas napade pirate ship izgine
 	if(hit.transform.tag.IndexOf("PirateShip") != -1){
@@ -139,7 +164,7 @@ function OnControllerColliderHit (hit : ControllerColliderHit) {
 			text3D.renderer.material.color = Color.yellow;
 			
 			// Unicimo vse steklenice.
-			var clones = GameObject.FindGameObjectsWithTag ("BottleClone");
+			clones = GameObject.FindGameObjectsWithTag ("BottleClone");
 		    for (var clone in clones){
 		        Destroy(clone);
 		    }

@@ -34537,7 +34537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e4870a1fa37434f826d651a2b6dd96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 30
   rotateSpeed: .5
   treasureActivated: 0
   text3D: {fileID: 0}
